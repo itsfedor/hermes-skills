@@ -1,8 +1,11 @@
 ---
 name: esl-video-review-summary
-description: "Use when a recorded homework review needs a summary HTML."
-version: 1.0.0
+description: "Use when a recorded homework review needs a summary HTML. Turns a teacher's video review (English + Russian) into a student-facing HTML summary: extract audio, transcribe via Deepgram, one section per homework task with color-coded fixes. Harness-agnostic: works in Hermes Agent, Claude Code, Cursor, VS Code Copilot, OpenHands, OpenClaw, Codex CLI, and any agent that reads SKILL.md (agentskills.io format)."
+version: 1.1.0
 category: education
+metadata:
+  compatibility: "Any AI coding assistant that supports agentskills.io SKILL.md format (Hermes Agent, Claude Code, Cursor, VS Code Copilot, OpenHands, OpenClaw, Codex CLI, Aider, Continue) or OpenClaw"
+  tags: [esl, homework, video, transcription, deepgram, html, education, summary]
 ---
 
 # ESL Video Review → Sectioned Summary HTML
@@ -63,6 +66,20 @@ Per-task sections; the "your answer" block is the student's answer as the teache
 
 - Practice tips: test-english links at the student's level (e.g. Student A = A2: prepositions-of-movement, past-continuous-past-simple, comparative-superlative-adjectives-adverbs, or the general /grammar-points/a2 index). Verify URL slugs before linking.
 - Also include: strengths box (specific, quoted wins), a "Sounds More Natural" takeaways box (the recurring patterns), next-homework callout, warm closing.
+
+## Publishing to GitHub (user requirement)
+
+The user requires this skill to live on GitHub: `itsfedor/hermes-skills` (public). After any update to the skill, push the change. Repo layout: `<category>/<skill-name>/SKILL.md` plus a row in the repo README table.
+
+Push pattern — no `gh` CLI; token lives in `/root/.hermes/.env` as `GITHUB_TOKEN`:
+
+```bash
+TOKEN=$(grep '^GITHUB_TOKEN=' /root/.hermes/.env | head -1 | cut -d= -f2 | tr -d '\n\r')
+git init -b main && git add -A && git -c user.name="Fedor Molodtsov" -c user.email="31373751+itsfedor@users.noreply.github.com" commit -m "..."
+git remote add origin "https://x-access-token:${TOKEN}@github.com/itsfedor/hermes-skills.git"
+```
+
+**Pitfall — auto_init README conflict:** creating the repo via API with `auto_init:true` leaves a remote README commit, so the first push is rejected (non-fast-forward). Fix: `git pull --rebase origin main`, resolve the README conflict with `git checkout --ours README.md` (keep the local one), `git add` + `git commit`, `git rebase --continue`, then `git push origin main`. Afterwards verify with the contents API (`/repos/itsfedor/hermes-skills/contents/...`) — confirm file list and sizes, not just the push exit code.
 
 ## Pitfalls
 
