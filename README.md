@@ -1,6 +1,15 @@
-# Hermes Skills
+# 🧰 Hermes Skills
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Format: agentskills.io](https://img.shields.io/badge/format-agentskills.io-0075de)](https://agentskills.io)
 
 A collection of reusable, harness-agnostic skills for AI coding agents — built from real workflows, packaged in the standard [agentskills.io](https://agentskills.io) SKILL.md format.
+
+<p align="center">
+  <img src="assets/preview.jpg" alt="Hermes Skills" width="80%" />
+</p>
+
+## Compatible with
 
 Works with **Hermes Agent, Claude Code, Cursor, VS Code Copilot, OpenHands, OpenClaw, Codex CLI, Aider, Continue** — any agent that reads SKILL.md.
 
