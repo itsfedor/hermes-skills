@@ -15,6 +15,8 @@ Works with **Hermes Agent, Claude Code, Cursor, VS Code Copilot, OpenHands, Open
 
 ## Install
 
+**Tell your agent:** *Install the skills from https://github.com/itsfedor/hermes-skills — follow the README.* The agent copies the skill folder into its skills directory itself.
+
 Copy the skill folder into your agent's skills directory (e.g. `~/.hermes/skills/`, `~/.claude/skills/`), or install straight from this repo with the [`skills`](https://agentskills.io) installer:
 
 ```bash
