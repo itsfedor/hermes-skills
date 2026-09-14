@@ -13,15 +13,22 @@ A collection of reusable, harness-agnostic skills for AI coding agents — built
 
 Works with **Hermes Agent, Claude Code, Cursor, VS Code Copilot, OpenHands, OpenClaw, Codex CLI, Aider, Continue** — any agent that reads SKILL.md.
 
-## Layout
+## Install
 
-Each skill lives in a folder named after itself, optionally grouped by category:
+Copy the skill folder into your agent's skills directory (e.g. `~/.hermes/skills/`, `~/.claude/skills/`), or install straight from this repo with the [`skills`](https://agentskills.io) installer:
 
+```bash
+npx skills add itsfedor/hermes-skills -g -y
 ```
-<category>/<skill-name>/SKILL.md
-```
 
-Install by copying the skill folder into your agent's skills directory (e.g. `~/.hermes/skills/`), or via any skill manager that reads this layout.
+## Requirements
+
+Per skill — each SKILL.md lists what it needs. For `esl-video-review-summary`:
+
+- an agent that reads SKILL.md
+- [ffmpeg](https://ffmpeg.org/) on PATH
+- a [Deepgram](https://deepgram.com/) API key (free tier works) as `DEEPGRAM_API_KEY`
+- a homework review recording to process
 
 ## Skills
 
