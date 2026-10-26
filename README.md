@@ -11,3 +11,7 @@ npx skills add itsfedor/esl-automation-suite -g -y
 ```
 
 This repository is archived and kept only so old links keep working.
+
+## License
+
+AGPL-3.0 — see [LICENSE](LICENSE). Commercial license: [COMMERCIAL.md](COMMERCIAL.md).
